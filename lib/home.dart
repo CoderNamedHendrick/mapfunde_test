@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mapfunde_test/views/analytics_screen.dart';
+import 'package:mapfunde_test/views/inbox.dart';
+import 'package:mapfunde_test/views/main.dart';
+import 'package:mapfunde_test/views/mic_screen.dart';
+import 'package:mapfunde_test/views/screen_one.dart';
 
 import 'utils/app_colors.dart';
 import 'utils/size_config.dart';
@@ -12,10 +17,18 @@ class AppHome extends StatefulWidget {
 
 class _AppHomeState extends State<AppHome> {
   int _selectedIndex = 2;
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: _selectedIndex);
+  }
 
   void selectIndex(int index) {
     setState(() {
       _selectedIndex = index;
+      _pageController.jumpToPage(index);
     });
   }
 
@@ -68,6 +81,17 @@ class _AppHomeState extends State<AppHome> {
         showUnselectedLabels: false,
         currentIndex: _selectedIndex,
         onTap: selectIndex,
+      ),
+      body: PageView(
+        children: const [
+          ScreenOne(),
+          InboxScreen(),
+          MainScreen(),
+          MicScreen(),
+          AnalyticsScreen(),
+        ],
+        controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(),
       ),
     );
   }
