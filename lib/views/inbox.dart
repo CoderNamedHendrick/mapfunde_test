@@ -53,8 +53,10 @@ class InboxScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: SizeConfig.width(14),
+          padding: EdgeInsets.only(
+            left: SizeConfig.width(14),
+            right: SizeConfig.width(14),
+            top: SizeConfig.height(14),
           ),
           child: Column(
             children: [

@@ -6,8 +6,8 @@ import 'package:mapfunde_test/components/section.dart';
 import 'package:mapfunde_test/utils/app_colors.dart';
 import 'package:mapfunde_test/utils/size_config.dart';
 
-class ProfileSection extends StatelessWidget {
-  const ProfileSection({Key? key}) : super(key: key);
+class LatestJobsSection extends StatelessWidget {
+  const LatestJobsSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -42,6 +42,7 @@ class _AppHomeState extends State<AppHome> {
           elevation: 0,
           centerTitle: true,
         ),
+        scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(
           headline3: TextStyle(
             fontWeight: FontWeight.w700,
