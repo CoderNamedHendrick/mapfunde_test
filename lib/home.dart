@@ -77,6 +77,7 @@ class _AppHomeState extends State<AppHome> {
         ),
         child: Scaffold(
           bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: Colors.white,
             items: [
               const BottomNavigationBarItem(
                 icon: Icon(Icons.timelapse_rounded),
