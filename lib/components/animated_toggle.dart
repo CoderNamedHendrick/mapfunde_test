@@ -92,26 +92,27 @@ class _AnimatedToggleState extends State<AnimatedToggle> {
             alignment:
                 initialPosition ? Alignment.centerLeft : Alignment.centerRight,
             child: Container(
-              width: widget.width * 0.33,
-              height: widget.width * 0.13,
+              width: widget.width / 1.9,
+              // height: widget.width * 0.13,
               decoration: BoxDecoration(
                 color: widget.buttonColor,
                 borderRadius: BorderRadius.circular(widget.width * 0.1),
                 boxShadow: const [
                   BoxShadow(
                     color: Colors.black38,
-                    offset: Offset(-2, 2),
-                    blurRadius: 4,
+                    offset: Offset(-0.5, 1),
+                    blurRadius: 1,
                     spreadRadius: 0,
                   ),
                   BoxShadow(
                     color: Colors.black38,
-                    offset: Offset(2, 2),
-                    blurRadius: 2,
+                    offset: Offset(0.5, 1),
+                    blurRadius: 1,
                     spreadRadius: 0,
                   )
                 ],
               ),
+              padding: EdgeInsets.symmetric(horizontal: SizeConfig.width(39)),
               child: Text(
                 initialPosition ? widget.values[0] : widget.values[1],
                 style: TextStyle(

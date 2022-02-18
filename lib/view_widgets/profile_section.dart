@@ -18,6 +18,7 @@ class LatestJobsSection extends StatelessWidget {
             values: const ['Latest profile', 'Latest jobs'],
             onToggleCallback: (index) {},
             width: SizeConfig.width(312),
+            backgroundColor: const Color(0xfff5f5fa),
           ),
           SizedBox(height: SizeConfig.height(38)),
           JobTile(

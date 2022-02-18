@@ -57,7 +57,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Stack(
           children: [
             AnimatedContainer(
-              duration: const Duration(milliseconds: 870),
+              duration: const Duration(milliseconds: 1000),
               height: SizeConfig.height(452),
               decoration: BoxDecoration(
                 gradient: _searchComplete ? _afterSearch : _beforeSearch,
@@ -71,7 +71,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
             SafeArea(
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 870),
+                duration: const Duration(milliseconds: 1050),
                 height: double.infinity,
                 width: double.infinity,
                 decoration: BoxDecoration(
