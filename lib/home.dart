@@ -44,6 +44,11 @@ class _AppHomeState extends State<AppHome> {
         ),
         scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(
+          headline2: TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: SizeConfig.textSize(34),
+            color: Colors.black,
+          ),
           headline3: TextStyle(
             fontWeight: FontWeight.w700,
             fontSize: SizeConfig.textSize(28),

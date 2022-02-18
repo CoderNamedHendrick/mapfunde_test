@@ -29,25 +29,32 @@ class TrendingCountriesSection extends StatelessWidget {
           DefaultTabController(
             length: 5,
             child: SizedBox(
-              height: SizeConfig.height(45),
+              height: SizeConfig.height(54),
               child: AppBar(
-                bottom: TabBar(
-                  indicator: const UnderlineTabIndicator(
-                    borderSide: BorderSide.none,
-                  ),
-                  unselectedLabelColor: Color(0xff8083a3),
-                  labelColor: Colors.black,
-                  labelStyle: TextStyle(
-                    fontSize: SizeConfig.textSize(14),
-                    fontWeight: FontWeight.w700,
-                  ),
-                  isScrollable: true,
-                  tabs: const [
-                    Tab(text: 'All Regions'),
-                    Tab(text: 'Europe'),
-                    Tab(text: 'Asia'),
-                    Tab(text: 'Africa'),
-                    Tab(text: 'Middle East'),
+                toolbarHeight: SizeConfig.height(54),
+                flexibleSpace: Column(
+                  // mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TabBar(
+                      indicator: const UnderlineTabIndicator(
+                        borderSide: BorderSide.none,
+                        insets: EdgeInsets.zero,
+                      ),
+                      unselectedLabelColor: const Color(0xff8083a3),
+                      labelColor: Colors.black,
+                      labelStyle: TextStyle(
+                        fontSize: SizeConfig.textSize(14),
+                        fontWeight: FontWeight.w700,
+                      ),
+                      isScrollable: true,
+                      tabs: const [
+                        Tab(text: 'All Regions'),
+                        Tab(text: 'Europe'),
+                        Tab(text: 'Asia'),
+                        Tab(text: 'Africa'),
+                        Tab(text: 'Middle East'),
+                      ],
+                    ),
                   ],
                 ),
               ),

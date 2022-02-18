@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mapfunde_test/utils/app_colors.dart';
 import 'package:mapfunde_test/utils/size_config.dart';
 
