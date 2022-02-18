@@ -30,7 +30,6 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _beforeSearch = const LinearGradient(
       begin: Alignment(-1, -1),
@@ -64,7 +63,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Stack(
           children: [
             AnimatedContainer(
-              duration: const Duration(milliseconds: 400),
+              duration: const Duration(milliseconds: 870),
               height: SizeConfig.height(452),
               decoration: BoxDecoration(
                 gradient: _searchComplete ? _afterSearch : _beforeSearch,
@@ -130,33 +129,46 @@ class _MainScreenState extends State<MainScreen> {
                               fontWeight: FontWeight.w700,
                             ),
                             decoration: InputDecoration(
-                              isDense: true,
+                              // isDense: true,
                               hintText: 'Job title, keyword or company',
                               hintStyle: TextStyle(
                                 fontSize: SizeConfig.textSize(12),
                                 fontWeight: FontWeight.w500,
                                 color: const Color(0xff8083a3),
                               ),
-                              prefixIcon: CircleAvatar(
-                                backgroundColor: _searchComplete
-                                    ? AppColors.primaryGreenTwo
-                                    : AppColors.primaryWhite,
-                                maxRadius: SizeConfig.width(15),
-                                child: Icon(
-                                  Icons.search,
-                                  color: Colors.white,
-                                  size: SizeConfig.width(16),
-                                ),
+
+                              prefixIcon: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const SizedBox(width: 8),
+                                  CircleAvatar(
+                                    backgroundColor: _searchComplete
+                                        ? AppColors.primaryGreenTwo
+                                        : AppColors.primaryWhite,
+                                    maxRadius: SizeConfig.width(15),
+                                    child: Icon(
+                                      Icons.search,
+                                      color: Colors.white,
+                                      size: SizeConfig.width(16),
+                                    ),
+                                  ),
+                                ],
                               ),
                               suffixIcon: _searchComplete
-                                  ? CircleAvatar(
-                                      backgroundColor: AppColors.primaryWhite,
-                                      maxRadius: SizeConfig.width(15),
-                                      child: Icon(
-                                        Icons.location_on_outlined,
-                                        color: Colors.black,
-                                        size: SizeConfig.width(16),
-                                      ),
+                                  ? Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        CircleAvatar(
+                                          backgroundColor:
+                                              AppColors.primaryWhite,
+                                          maxRadius: SizeConfig.width(15),
+                                          child: Icon(
+                                            Icons.location_on_outlined,
+                                            color: Colors.black,
+                                            size: SizeConfig.width(16),
+                                          ),
+                                        ),
+                                      ],
                                     )
                                   : null,
                               border: OutlineInputBorder(
@@ -171,6 +183,7 @@ class _MainScreenState extends State<MainScreen> {
                           ),
                         ),
                       ),
+                      SizedBox(height: SizeConfig.height(23)),
                       _searchComplete
                           ? const AfterSearch()
                           : const RecommendedSection(),

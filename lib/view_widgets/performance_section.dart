@@ -82,7 +82,29 @@ class _PerformanceSectionState extends State<PerformanceSection> {
                   allowTouchBarBackDraw: true,
                   touchTooltipData: BarTouchTooltipData(
                     tooltipBgColor: Colors.white,
-                    getTooltipItem: (a, b, c, d) => null,
+                    getTooltipItem:
+                        (BarChartGroupData a, int b, BarChartRodData c, int d) {
+                      var day = getDay(a);
+                      return BarTooltipItem(
+                        '${a.x == 0 || a.x == 1 ? 'February' : 'March'} '
+                        '$day',
+                        TextStyle(
+                          fontSize: SizeConfig.textSize(14),
+                          color: const Color(0xff8083a3),
+                        ),
+                        children: [
+                          TextSpan(
+                            text: '\n${c.y.toString()} '
+                                '${c.colors.contains(AppColors.primaryGreenTwo) ? 'Views' : 'Applications'}',
+                            style: TextStyle(
+                              fontSize: SizeConfig.textSize(14),
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
                   touchCallback: (event, response) {},
                 ),
@@ -126,14 +148,52 @@ class _PerformanceSectionState extends State<PerformanceSection> {
     );
   }
 
+  String getDay(BarChartGroupData a) {
+    switch (a.x.toInt()) {
+      case 0:
+        return '27';
+      case 1:
+        return '28';
+      case 2:
+        return '1';
+      case 3:
+        return '2';
+      case 4:
+        return '3';
+      case 5:
+        return '4';
+      case 6:
+        return '5';
+      case 7:
+        return '7';
+      default:
+        return '';
+    }
+  }
+
   FlTitlesData get titlesData => FlTitlesData(
         show: true,
         bottomTitles: SideTitles(
           showTitles: true,
-          getTextStyles: (context, value) => const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
-          ),
+          getTextStyles: (context, value) {
+            switch (value.toInt()) {
+              case 0:
+                return TextStyle(
+                  fontSize: SizeConfig.textSize(14),
+                  color: const Color(0xff8083a3),
+                );
+              case 1:
+                return TextStyle(
+                  fontSize: SizeConfig.textSize(14),
+                  color: const Color(0xff8083a3),
+                );
+              default:
+                return TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: SizeConfig.textSize(14),
+                );
+            }
+          },
           margin: 20,
           getTitles: (double value) {
             switch (value.toInt()) {

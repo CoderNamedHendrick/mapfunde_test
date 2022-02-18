@@ -61,6 +61,10 @@ class AfterSearch extends StatelessWidget {
           child: Row(
             children: [
               FilterChip(
+                padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.height(9),
+                  horizontal: SizeConfig.width(18),
+                ),
                 label: Row(
                   children: [
                     Text(
@@ -81,6 +85,10 @@ class AfterSearch extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               FilterChip(
+                padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.height(9),
+                  horizontal: SizeConfig.width(18),
+                ),
                 label: Row(
                   children: [
                     Text(
@@ -101,6 +109,10 @@ class AfterSearch extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               FilterChip(
+                padding: EdgeInsets.symmetric(
+                  vertical: SizeConfig.height(9),
+                  horizontal: SizeConfig.width(18),
+                ),
                 label: Row(
                   children: [
                     Text(
@@ -122,6 +134,7 @@ class AfterSearch extends StatelessWidget {
             ],
           ),
         ),
+        SizedBox(height: SizeConfig.height(18)),
         ...managerSearchList,
       ],
     );
