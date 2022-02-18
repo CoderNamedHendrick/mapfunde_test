@@ -40,7 +40,7 @@ class _AnimatedToggleState extends State<AnimatedToggle> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: widget.width,
       height: SizeConfig.height(48),
       // margin: const EdgeInsets.all(20),

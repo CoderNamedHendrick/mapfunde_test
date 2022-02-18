@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:mapfunde_test/components/animated_toggle.dart';
 import 'package:mapfunde_test/components/app_back_button.dart';
-import 'package:mapfunde_test/components/job_tile.dart';
-import 'package:mapfunde_test/components/analytics_metric_tile.dart';
-import 'package:mapfunde_test/components/profile_tile.dart';
-import 'package:mapfunde_test/components/section.dart';
-import 'package:mapfunde_test/components/tag.dart';
-import 'package:mapfunde_test/utils/app_colors.dart';
 import 'package:mapfunde_test/utils/size_config.dart';
 import 'package:mapfunde_test/view_widgets/analytics_highlights_one.dart';
 import 'package:mapfunde_test/view_widgets/analytics_highlights_two.dart';

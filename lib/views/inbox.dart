@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mapfunde_test/components/app_back_button.dart';
 import 'package:mapfunde_test/components/candidate_section.dart';
-import 'package:mapfunde_test/components/custom_chip.dart';
 import 'package:mapfunde_test/utils/app_colors.dart';
 import 'package:mapfunde_test/utils/size_config.dart';
 import 'package:mapfunde_test/view_widgets/option_chips.dart';
