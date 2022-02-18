@@ -35,93 +35,106 @@ class _AppHomeState extends State<AppHome> {
   @override
   Widget build(BuildContext context) {
     SizeConfig.init(context);
-    return Theme(
-      data: ThemeData(
-        appBarTheme: const AppBarTheme(
-          color: Colors.white,
-          elevation: 0,
-          centerTitle: true,
-        ),
-        scaffoldBackgroundColor: Colors.white,
-        textTheme: TextTheme(
-          headline2: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: SizeConfig.textSize(34),
-            color: Colors.black,
+    return WillPopScope(
+      onWillPop: () async {
+        if (_selectedIndex != 2) {
+          setState(() {
+            _selectedIndex = 2;
+            _pageController.jumpToPage(_selectedIndex);
+          });
+          return false;
+        }
+        return true;
+      },
+      child: Theme(
+        data: ThemeData(
+          appBarTheme: const AppBarTheme(
+            color: Colors.white,
+            elevation: 0,
+            centerTitle: true,
           ),
-          headline3: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: SizeConfig.textSize(28),
-            color: Colors.black,
-          ),
-          headline5: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: SizeConfig.textSize(20),
-          ),
-          headline6: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: SizeConfig.textSize(18),
-          ),
-        ),
-      ),
-      child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.timelapse_rounded),
-              label: 'Time',
+          scaffoldBackgroundColor: Colors.white,
+          textTheme: TextTheme(
+            headline2: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: SizeConfig.textSize(34),
+              color: Colors.black,
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.inbox_outlined),
-              label: 'Inbox',
+            headline3: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: SizeConfig.textSize(28),
+              color: Colors.black,
             ),
-            BottomNavigationBarItem(
-                icon: SizedBox(
-                  height: SizeConfig.height(56),
-                  width: SizeConfig.height(56),
-                  child: Card(
-                    elevation: _selectedIndex == 2 ? 0 : null,
-                    color:
-                        _selectedIndex == 2 ? AppColors.primaryGreenTwo : null,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        SizeConfig.height(28),
+            headline5: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: SizeConfig.textSize(20),
+            ),
+            headline6: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: SizeConfig.textSize(18),
+            ),
+          ),
+        ),
+        child: Scaffold(
+          bottomNavigationBar: BottomNavigationBar(
+            items: [
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.timelapse_rounded),
+                label: 'Time',
+              ),
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.inbox_outlined),
+                label: 'Inbox',
+              ),
+              BottomNavigationBarItem(
+                  icon: SizedBox(
+                    height: SizeConfig.height(56),
+                    width: SizeConfig.height(56),
+                    child: Card(
+                      elevation: _selectedIndex == 2 ? 0 : null,
+                      color: _selectedIndex == 2
+                          ? AppColors.primaryGreenTwo
+                          : null,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          SizeConfig.height(28),
+                        ),
+                      ),
+                      child: Icon(
+                        Icons.person_search_outlined,
+                        color: _selectedIndex == 2 ? Colors.white : null,
                       ),
                     ),
-                    child: Icon(
-                      Icons.person_search_outlined,
-                      color: _selectedIndex == 2 ? Colors.white : null,
-                    ),
                   ),
-                ),
-                label: 'jobs'),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.mic_none_rounded),
-              label: 'mic',
-            ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.menu_rounded),
-              label: 'menu',
-            ),
-          ],
-          unselectedItemColor: AppColors.primaryBlack,
-          selectedItemColor: AppColors.primaryGreenTwo,
-          type: BottomNavigationBarType.fixed,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          currentIndex: _selectedIndex,
-          onTap: selectIndex,
-        ),
-        body: PageView(
-          children: const [
-            ScreenOne(),
-            InboxScreen(),
-            MainScreen(),
-            MicScreen(),
-            AnalyticsScreen(),
-          ],
-          controller: _pageController,
-          physics: const NeverScrollableScrollPhysics(),
+                  label: 'jobs'),
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.mic_none_rounded),
+                label: 'mic',
+              ),
+              const BottomNavigationBarItem(
+                icon: Icon(Icons.menu_rounded),
+                label: 'menu',
+              ),
+            ],
+            unselectedItemColor: AppColors.primaryBlack,
+            selectedItemColor: AppColors.primaryGreenTwo,
+            type: BottomNavigationBarType.fixed,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            currentIndex: _selectedIndex,
+            onTap: selectIndex,
+          ),
+          body: PageView(
+            children: const [
+              ScreenOne(),
+              InboxScreen(),
+              MainScreen(),
+              MicScreen(),
+              AnalyticsScreen(),
+            ],
+            controller: _pageController,
+            physics: const NeverScrollableScrollPhysics(),
+          ),
         ),
       ),
     );
