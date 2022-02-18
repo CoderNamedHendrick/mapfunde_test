@@ -146,6 +146,7 @@ class _MainScreenState extends State<MainScreen> {
                                       size: SizeConfig.width(16),
                                     ),
                                   ),
+                                  const SizedBox(width: 8),
                                 ],
                               ),
                               suffixIcon: _searchComplete
