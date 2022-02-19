@@ -1,5 +1,5 @@
-import 'package:countries_world_map/world/simple_world/simple_world.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mapfunde_test/components/section.dart';
 import 'package:mapfunde_test/utils/app_colors.dart';
 import 'package:mapfunde_test/utils/size_config.dart';
@@ -64,22 +64,29 @@ class TrendingCountriesSection extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: SizeConfig.height(25)),
             child: InteractiveViewer(
               maxScale: 75,
-              child: const SimpleWorldMap(
-                defaultCountryColor: AppColors.primaryWhite,
-                countryColors: SimpleWorldCountryColors(
-                  uS: AppColors.appBlue,
-                  mE: AppColors.primaryYellow,
-                  bR: AppColors.primaryGreen,
-                  rU: AppColors.primaryOrange,
-                  aU: AppColors.appPink,
-                  eS: Color(0xffb6e540),
-                  fR: Color(0xffdf9ab7),
-                  dE: AppColors.primaryOrange,
-                  zA: AppColors.appPurple,
-                  cN: AppColors.primaryYellow,
-                  mX: AppColors.primaryYellow,
+              child: SizedBox(
+                height: SizeConfig.height(156),
+                child: SvgPicture.asset(
+                  'assets/model/World.svg',
+                  fit: BoxFit.cover,
                 ),
               ),
+              // child: const SimpleWorldMap(
+              //   defaultCountryColor: AppColors.primaryWhite,
+              //   countryColors: SimpleWorldCountryColors(
+              //     uS: AppColors.appBlue,
+              //     mE: AppColors.primaryYellow,
+              //     bR: AppColors.primaryGreen,
+              //     rU: AppColors.primaryOrange,
+              //     aU: AppColors.appPink,
+              //     eS: Color(0xffb6e540),
+              //     fR: Color(0xffdf9ab7),
+              //     dE: AppColors.primaryOrange,
+              //     zA: AppColors.appPurple,
+              //     cN: AppColors.primaryYellow,
+              //     mX: AppColors.primaryYellow,
+              //   ),
+              // ),
             ),
           ),
           Table(
